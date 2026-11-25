@@ -1,4 +1,4 @@
-FROM node:26.13.0-alpine3.24 AS build
+FROM node:26.13.1-alpine3.24 AS build
 
 WORKDIR /front
 
@@ -14,7 +14,7 @@ ENV VITE_SITE_URL=${VITE_SITE_URL}
 
 RUN npm run build
 
-FROM nginx:1.31.8-alpine3.24
+FROM nginx:1.31.9-alpine3.24
 
 COPY --from=build /front/dist /usr/share/nginx/html
 
